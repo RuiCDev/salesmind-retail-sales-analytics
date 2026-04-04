@@ -1,0 +1,3 @@
+Download the raw CSV files from this link to populate the SQL database.
+
+https://www.kaggle.com/datasets/algozee/dayaset-2020
