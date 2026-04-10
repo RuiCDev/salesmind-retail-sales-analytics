@@ -1,121 +1,149 @@
-# 📊 Retail Sales & Profitability Analytics Dashboard
-
-🔗 **GitHub Repository:**  
-https://github.com/RuiCDev/salesmind-retail-sales-analytics
+# 📊 Retail Sales Analytics (SalesMind Project)
 
 ---
 
 ## 📌 Business Problem
 
-Retail businesses need to continuously monitor sales performance, profitability, and product efficiency to make informed operational decisions.
+Retail businesses generate large volumes of transactional data, but often lack structured insights into:
 
-Without a centralized analytics solution, it becomes difficult to:
-- Identify top-performing products  
-- Track profitability across regions  
-- Detect seasonal trends  
-- Optimize pricing and inventory strategies  
+- Revenue performance and growth trends  
+- Product and category profitability  
+- Customer purchasing behavior  
+- Regional sales distribution  
+
+Without proper analytics, decision-making becomes reactive rather than data-driven.
 
 ---
 
 ## 🎯 Objective
 
-Develop a Business Intelligence solution to:
+Build a complete analytics solution to:
 
-- Monitor revenue and profit performance  
-- Analyze product and category efficiency  
-- Identify seasonal trends and demand patterns  
-- Support data-driven operational and strategic decisions  
+- Track revenue, profit, and key KPIs  
+- Identify top-performing products and categories  
+- Analyze customer purchasing patterns  
+- Support strategic business decisions  
 
 ---
 
 ## 🧠 Solution Overview
 
-This project delivers an end-to-end BI solution using **MySQL and Power BI**, transforming raw retail data into actionable business insights.
+This project delivers an **end-to-end analytics workflow**, combining:
 
-Key components:
-
-- Data cleaning and transformation in MySQL  
-- Star Schema data modeling for scalable analytics  
-- Interactive Power BI dashboards for business users  
+- SQL for data transformation and modeling  
+- Python for data analysis and validation  
+- Power BI for interactive dashboards and business reporting  
 
 ---
 
-## 🏗️ Data Architecture
+## 🧱 Data Model
 
-A **Star Schema** was implemented to ensure performance and scalability.
+A **star schema** was designed to support analytical queries:
 
-![Data Model](screenshots/salesmind_data_model.png)
+**Fact Table:**
+- Sales
+
+**Dimension Tables:**
+- Customers  
+- Products  
+- Categories  
+- Dates  
+
+This structure enables efficient aggregation and scalable reporting.
 
 ---
 
-## 🛠️ Tech Stack
+## 🗄️ Example SQL Query
 
-- MySQL (data cleaning, transformation, modeling)  
-- Power BI (data visualization, dashboards)  
-- DAX (KPI calculations and analysis)  
-- Dimensional Modeling (Star Schema)  
+```sql
+SELECT 
+    category,
+    SUM(revenue) AS total_revenue,
+    SUM(profit) AS total_profit
+FROM sales s
+JOIN products p ON s.product_id = p.product_id
+GROUP BY category
+ORDER BY total_revenue DESC;
+```
+
+--- 
+
+## 📊 Key KPIs
+
+- Total Revenue
+- Total Profit
+- Profit Margin
+- Sales Growth
+- Top Products & Categories
+
+## 💡 Key Business Insights
+
+- **Top Categories:** A small number of categories generate the majority of revenue
+- **Profit Variability:** Some high-revenue products have low margins
+- **Customer Behavior:** Repeat customers contribute significantly to revenue
+- **Seasonality:** Sales show clear patterns across time periods
+
+--- 
+
+## 🎯 Business Impact
+
+This analysis enables:
+
+- Identification of high-margin products
+- Better pricing and promotion strategies
+- Improved inventory planning
+- Data-driven decision-making
 
 ---
 
 ## 📈 Dashboard Overview
 
-This dashboard enables stakeholders to monitor business performance and quickly identify opportunities and risks.
+The Power BI dashboard provides:
 
-### Key KPIs:
-- Total Revenue  
-- Total Profit  
-- Profit Margin  
-- Sales Trends Over Time  
-
-### Key Visuals:
-- Revenue by Product Category  
-- Profitability Analysis  
-- Regional Performance  
-- Monthly Sales Trends  
+- Executive KPI summary
+- Revenue and profit trends
+- Product and category performance
+- Customer insights
 
 ---
 
-## 💡 Key Business Insights
+## 📂 Project Structure
 
-- **Strong Profitability:**  
-  Generated **$61.21M revenue** and **$16.34M profit**, with a **26.7% margin**
-
-- **Product Portfolio Balance:**  
-  Revenue is distributed across categories, reducing dependency risk and improving stability  
-
-- **Seasonality Patterns:**  
-  Peak sales in **January and December**, supporting better campaign and inventory planning  
-
----
-
-## 🎯 Business Impact
-
-This solution enables:
-
-- Better inventory and demand planning  
-- More effective marketing timing based on seasonality  
-- Improved pricing and margin control  
-- Faster and more informed decision-making  
-
----
-
-## 📸 Dashboard Preview
-
-![Executive Overview](screenshots/salesmind_dashboard.png)
-![Regional Analysis](screenshots/salesmind_dashboard_europe.png)
-
----
-
-## 📂 Dataset
-
-This project uses the [SalesMind 2026 Dataset](https://www.kaggle.com/datasets/algozee/dayaset-2020)
+```
+├── dashboards/
+├── images/
+├── notebooks/
+├── sql/
+├── README.md
+```
 
 ---
 
 ## 🚀 How to Run
 
-1. Clone repository  
-2. Run SQL scripts  
-3. Open Power BI dashboard  
+1. Load dataset into MySQL
+2. Execute SQL queries from /sql
+3. Run Python analysis in /notebooks
+4. Open Power BI dashboard in /dashboards
 
 ---
+
+## 🛠️ Tech Stack
+
+- SQL (MySQL)
+- Python (Pandas)
+- Power BI (DAX, Data Modeling)
+- Git & GitHub
+
+---
+
+## 📌 Future Improvements
+
+- Add automated data validation checks
+- Implement advanced SQL (window functions)
+- Deploy dashboard using web-based tools
+- Expand analysis with predictive modeling
+
+---
+
+## ⭐ This project demonstrates how data can be transformed into actionable business insights.
